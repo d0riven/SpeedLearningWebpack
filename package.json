@@ -6,11 +6,14 @@
   "dependencies": {},
   "devDependencies": {
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "start": "webpack-dev-server --open",
+    "build": "webpack",
+    "build:watch": "webpack --watch"
   },
   "author": "",
   "license": "MIT"

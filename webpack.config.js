@@ -4,4 +4,13 @@ module.exports = {
     path: `${__dirname}/dist`,
     filename: 'main.js'
   },
+  devServer: {
+    contentBase: './dist',
+    host: 'localhost',
+    port: 8080,
+    watchOptions: {
+      aggregateTimeout: 300, // 300ms
+      ignored: [],
+    }
+  },
 };
