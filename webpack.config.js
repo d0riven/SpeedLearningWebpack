@@ -34,6 +34,19 @@ module.exports = {
           'css-loader',
         ],
       },
+      {
+        test: /\.(gif|png|jpg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: { // 50KB以上であれば./images/xxx.jpgという名前で出力される
+              limit: 51200,
+              name: './images/[name].[ext]',
+              // fallback: 'file-loader', // デフォルト値でfile-loaderがlimitを超えた場合のloaderに指定されている
+            },
+          },
+        ],
+      }
     ]
   }
 };
