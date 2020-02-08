@@ -14,4 +14,5 @@ module.exports = {
       ignored: [],
     }
   },
+  devtool: 'eval-source-map',
 };
