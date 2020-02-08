@@ -23,18 +23,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              // publicPath: `${__dirname}/dist`,
-            },
-          },
-          'css-loader',
-        ],
-      },
-      {
         test: /\.(gif|png|jpg)$/,
         use: [
           {
@@ -46,7 +34,30 @@ module.exports = {
             },
           },
         ],
-      }
-    ]
-  }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          // ここでstyle-loaderの代わりにMiniCssExtractPluginを使ったらstyle.cssをパース出来ずに動かなくなる
+          // ちなみにfile-loaderをruleの上に持ってくると動くのでttfファイルを先に読み込まないと駄目ということなのかもしれない
+          /*
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // publicPath: `${__dirname}/dist`,
+            },
+          },
+           */
+          'style-loader',
+          'css-loader',
+        ],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          'file-loader',
+        ],
+      },
+    ],
+  },
 };

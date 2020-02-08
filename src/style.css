@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Custom';
+    src: url('../font/cinecaption226.ttf') format('truetype');
+}
+body {
+    font-family: Custom;
+    font-size: 36px;
+    color: red;
+}
 .sky {
     background-color: #E0FFFF;
+    background-image: url(../images/animal.jpg);
 }

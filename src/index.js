@@ -15,10 +15,9 @@ let body = document.getElementsByTagName('body')[0];
 body.classList.add('sky');
 
 import pic from '../images/wings.jpg';
-import chu from '../images/eto_nezumi_kamifubuki.png';
 
 window.addEventListener('DOMContentLoaded', function(){
-  [pic, chu].forEach((p) => {
+  [pic].forEach((p) => {
     let img = new Image();
     img.src = p;
     document.body.appendChild(img);
