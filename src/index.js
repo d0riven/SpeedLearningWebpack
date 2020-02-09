@@ -48,8 +48,14 @@ ReactDOM.render(
 
 import { triangle } from './util';
 console.log(triangle(10, 5));
-*/
+
 const name = 'webpack';
 console.log(`${name}`);
 const v = 3;
 console.log(v === 3);
+*/
+
+import './style.css';
+
+const body = document.getElementsByTagName('body')[0];
+body.classList.add('sky');

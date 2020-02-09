@@ -2,9 +2,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     main: './src/index.js',
     // sub: './src/sub.js'
@@ -21,7 +22,8 @@ module.exports = {
             drop_console: true, // consoleを削除
           },
         },
-      })
+      }),
+      new OptimizeCSSAssetsPlugin({})
     ],
   },
   devServer: {
@@ -43,8 +45,7 @@ module.exports = {
       filename: 'index.html',
       template: 'src/index.html',
     }),
-    new CleanWebpackPlugin({
-    }),
+    new CleanWebpackPlugin({}),
   ],
   module: {
     rules: [
@@ -92,27 +93,25 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.s[ac]ss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'], // sass-loaderが一番最後じゃないと意図した通りに動かない
-      },
-      /*
+      // {
+      //   test: /\.s[ac]ss$/,
+      //   use: ['style-loader', 'css-loader', 'sass-loader'], // sass-loaderが一番最後じゃないと意図した通りに動かない
+      // },
       {
         test: /\.css$/,
         use: [
           // ここでstyle-loaderの代わりにMiniCssExtractPluginを使ったらstyle.cssをパース出来ずに動かなくなる
           // ちなみにfile-loaderをruleの上に持ってくると動くのでttfファイルを先に読み込まないと駄目ということなのかもしれない
-          // {
-          //   loader: MiniCssExtractPlugin.loader,
-          //   options: {
-          //     // publicPath: `${__dirname}/dist`,
-          //   },
-          // },
-          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // publicPath: `${__dirname}/dist`,
+            },
+          },
+          // 'style-loader',
           'css-loader',
         ],
       },
-      */
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
