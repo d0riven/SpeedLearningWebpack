@@ -23,6 +23,14 @@ module.exports = {
   module: {
     rules: [
       {
+        rules: [
+          {
+            test: /\.(xml)$/,
+            loader: 'xml-loader',
+          }
+        ],
+      },
+      {
         test: /\.(html)$/,
         use: {
           loader: 'html-loader',

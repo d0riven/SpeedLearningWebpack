@@ -32,3 +32,8 @@ console.log(csv[0][1]);
 
 import html from './sample.html';
 console.log(html);
+
+import xml from './sample.xml';
+console.log(xml.data.row[0]);
+console.log(xml.data.row[1].$.id);
+console.log(xml.data.row[1]._);
