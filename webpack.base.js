@@ -1,11 +1,8 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'production',
   entry: {
     main: './src/index.js',
     // sub: './src/sub.js'
@@ -14,28 +11,6 @@ module.exports = {
     path: `${__dirname}/dist`,
     filename: '[name]-[chunkhash].js'
   },
-  optimization: {
-    minimizer: [
-      new UglifyJSPlugin({
-        uglifyOptions: {
-          compress: {
-            drop_console: true, // consoleを削除
-          },
-        },
-      }),
-      new OptimizeCSSAssetsPlugin({})
-    ],
-  },
-  devServer: {
-    contentBase: './dist',
-    host: 'localhost',
-    port: 8080,
-    watchOptions: {
-      aggregateTimeout: 300, // 300ms
-      ignored: [],
-    }
-  },
-  devtool: 'eval-source-map',
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'style.css',

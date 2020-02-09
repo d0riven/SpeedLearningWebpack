@@ -37,13 +37,14 @@
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2",
     "xml-loader": "^1.2.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open",
-    "build": "webpack",
-    "build:watch": "webpack --watch"
+    "start": "webpack-dev-server --open --config webpack.development.js",
+    "build": "webpack --config webpack.production.js",
+    "build:watch": "webpack --watch --config webpack.production.js"
   },
   "author": "",
   "license": "MIT"
