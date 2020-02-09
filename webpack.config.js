@@ -58,22 +58,26 @@ module.exports = {
         ],
       },
       {
+        test: /\.s[ac]ss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'], // sass-loaderが一番最後じゃないと意図した通りに動かない
+      },
+      /*
+      {
         test: /\.css$/,
         use: [
           // ここでstyle-loaderの代わりにMiniCssExtractPluginを使ったらstyle.cssをパース出来ずに動かなくなる
           // ちなみにfile-loaderをruleの上に持ってくると動くのでttfファイルを先に読み込まないと駄目ということなのかもしれない
-          /*
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              // publicPath: `${__dirname}/dist`,
-            },
-          },
-           */
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          //   options: {
+          //     // publicPath: `${__dirname}/dist`,
+          //   },
+          // },
           'style-loader',
           'css-loader',
         ],
       },
+      */
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [

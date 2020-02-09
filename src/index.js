@@ -8,7 +8,8 @@ hello();
 console.log(Figure.getTriangle(10, 5));
 console.log(Figure.getTriangle(30, 10));
 
-import './style.css';
+// import './style.css';
+import './style.scss';
 let body = document.getElementsByTagName('body')[0];
 body.classList.add('sky');
 
