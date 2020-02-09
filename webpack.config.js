@@ -24,20 +24,8 @@ module.exports = {
     rules: [
       {
         test: /\.(js)$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                [
-                  '@babel/preset-env',
-                  {'modules':false}, // webpack環境ではモジュール構文は不要らしい
-                ],
-              ],
-            },
-          },
-        ],
         exclude: /node_modules/,
+        use: ['babel-loader'],
       },
       {
         test: /\.(xml)$/,
