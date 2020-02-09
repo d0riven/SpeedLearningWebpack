@@ -1,11 +1,16 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    // sub: './src/sub.js'
+  },
   output: {
     path: `${__dirname}/dist`,
-    filename: 'main.js'
+    filename: '[name]-[chunkhash].js'
   },
   devServer: {
     contentBase: './dist',
@@ -17,9 +22,18 @@ module.exports = {
     }
   },
   devtool: 'eval-source-map',
-  plugins: [new MiniCssExtractPlugin({
-    filename: 'style.css',
-  })],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+    }),
+    new HtmlWebpackPlugin({
+      title: '速習webpack',
+      filename: 'index.html',
+      template: 'src/index.html',
+    }),
+    new CleanWebpackPlugin({
+    }),
+  ],
   module: {
     rules: [
       {
