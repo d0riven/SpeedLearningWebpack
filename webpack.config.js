@@ -23,16 +23,20 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.ts$/,
+        use: 'ts-loader',
+      },
+      {
+        test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
       {
-        test: /\.(xml)$/,
+        test: /\.xml$/,
         loader: 'xml-loader',
       },
       {
-        test: /\.(html)$/,
+        test: /\.html$/,
         use: {
           loader: 'html-loader',
           options: {
@@ -84,4 +88,7 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    extensions: ['.ts', '.js', '.json']
+  }
 };

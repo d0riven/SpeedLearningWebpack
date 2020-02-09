@@ -42,3 +42,6 @@ ReactDOM.render(
   <App />,
   document.getElementById('app')
 );
+
+import { triangle } from './util';
+console.log(triangle(10, 5));
