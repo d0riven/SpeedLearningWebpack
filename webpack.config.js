@@ -32,6 +32,15 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          fix: false,
+          failOnError: true,
+        },
+      },
+      {
         test: /\.xml$/,
         loader: 'xml-loader',
       },

@@ -1,4 +1,6 @@
-import {APP_NAME, hello, Figure} from "./myutil";
+/*
+import {APP_NAME, hello, Figure} from './myutil';
+
 console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {
   console.log('!!開発モードで動作中!!');
@@ -46,3 +48,8 @@ ReactDOM.render(
 
 import { triangle } from './util';
 console.log(triangle(10, 5));
+*/
+const name = 'webpack';
+console.log(`${name}`);
+const v = 3;
+console.log(v === 3);
