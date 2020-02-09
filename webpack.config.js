@@ -43,7 +43,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: '速習webpack',
       filename: 'index.html',
-      template: 'src/index.html',
+      template: 'src/index.ejs',
     }),
     new CleanWebpackPlugin({}),
   ],
