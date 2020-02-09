@@ -23,3 +23,9 @@ window.addEventListener('DOMContentLoaded', function(){
     document.body.appendChild(img);
   });
 }, false);
+
+import data from './sample.json';
+console.log(data[0].title);
+
+import csv from './sample.csv';
+console.log(csv[0][1]);
