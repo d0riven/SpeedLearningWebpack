@@ -29,3 +29,6 @@ console.log(data[0].title);
 
 import csv from './sample.csv';
 console.log(csv[0][1]);
+
+import html from './sample.html';
+console.log(html);
