@@ -23,12 +23,25 @@ module.exports = {
   module: {
     rules: [
       {
-        rules: [
+        test: /\.(js)$/,
+        use: [
           {
-            test: /\.(xml)$/,
-            loader: 'xml-loader',
-          }
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {'modules':false}, // webpack環境ではモジュール構文は不要らしい
+                ],
+              ],
+            },
+          },
         ],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(xml)$/,
+        loader: 'xml-loader',
       },
       {
         test: /\.(html)$/,
